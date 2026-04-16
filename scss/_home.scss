@@ -28,13 +28,14 @@
 }
 
 .home {
+    overflow: hidden;
     position: relative;
     height: 100vh;
-    overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     margin-left: 2rem;
-    gap: 20rem;
+    justify-content: space-around;
+    gap: 2rem;
     background: linear-gradient(
         to right,
         rgba(config.$primary-color, 0.9),
@@ -49,37 +50,11 @@
         padding: 6rem 1rem 2rem 1rem;
         justify-content: center;
         text-align: center;
-    }
-
-        .social-icons--home {
-        position: relative;
-        bottom: 40rem;
-        gap: 1rem;
-        font-size: 2rem;
-        gap: 1.5rem;
-        @media ( max-width: 768px ) {
-            gap: 2rem;
-            bottom: 1rem;
-            margin-top: 0.5rem;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        a {
-            display: inline-flex;
-            align-items: center;
-            @media (max-width: 768px) {
-                font-size: 2.2rem;
-            }
-
-            &:hover {
-                @include config.transition-ease;
-                @include config.color-opacity;
-            }
-        }
+        overflow-y: auto;
     }
     &-img {
-        width: 500px;
+        width: 100%;
+        max-width: 500px;
         height: 500px;
         object-fit: cover;
         object-position: top;
@@ -98,7 +73,7 @@
         opacity: 0;
 
         @media ( max-width: 768px ) {
-            width: 280px;
+            max-width: 280px;
             height: 280px;
             margin-bottom: 3rem;
             mask-image: none;
@@ -112,12 +87,42 @@
 
         @media ( max-width: 768px ) {
             margin-top: 0;
+        }
+
+        .social-icons--home {
+            position: static;
+            display: flex;
+            bottom: 0rem;
+            font-size: 2rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            @media ( max-width: 768px ) {
+                gap: 2rem;
+                bottom: 1rem;
+                margin-top: 1.5rem;
+                justify-content: center;
+                text-align: center;
             }
+            
+            a {
+                display: inline-flex;
+                align-items: center;
+                @media (max-width: 768px) {
+                    font-size: 2.2rem;
+                }
+
+                &:hover {
+                    @include config.transition-ease;
+                    @include config.color-opacity;
+                }
+            }
+        }
         h2 {
-            font-size: 1rem;
+            font-size: 1.5rem;
             font-weight: map-get(config.$fontWeights, medium );
             letter-spacing: 2px;
             text-transform: uppercase;
+            margin-bottom: 0.7rem;
             color: transparentize(config.$text-secondary, 0.5);
 
             @media ( max-width: 768px ) {

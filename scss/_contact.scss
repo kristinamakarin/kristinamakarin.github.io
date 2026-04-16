@@ -27,7 +27,7 @@
 
 .contact {
     width: 60%;
-    margin-top: 3rem;
+    margin-top: 6rem;
     margin-bottom: 2rem;
     animation: fadeIn 0.8s ease forwards;
 
@@ -109,6 +109,17 @@
             position: relative;
             margin-bottom: 1rem;
             @include config.form-tag;
+            color: white;
+        }
+
+        textarea {
+            caret-color: white;
+            position: relative;
+            margin-bottom: 1rem;
+            @include config.form-tag;
+            text-align: left;
+            padding: 1rem 0.3rem;
+            color: white;
         }
 }
 
@@ -121,4 +132,16 @@
 
 .contact-wrap p {
     margin-bottom: 0.5rem;
+}
+
+.send-btn {
+    @include config.button-tag(config.$secondary-color);
+    @include config.color-opacity;
+    color: config.$primary-color;
+    &:hover {
+        background: transparentize(config.$primary-color, 0.7);
+        color: transparentize(white, 0.3);
+        border: 2px solid transparentize(config.$secondary-color, 0.6);
+        
+    }
 }
