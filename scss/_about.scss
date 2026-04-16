@@ -84,9 +84,10 @@
         justify-content: center;
         gap: 1.5rem;
         margin-top: 2rem;
-        margin-bottom: 1rem;
-
+        margin-bottom: 0;
         bottom: auto;
+         
+        
         a {
             font-size: 1.5rem;
             padding: 0.4rem;
@@ -179,6 +180,9 @@
                 width: 2px;
                 height: 2.5rem; 
                 background: config.$primary-color;
+                @media ( max-width: 768px ) {
+                    bottom: -5rem;
+                }
             }
 
             h4 {

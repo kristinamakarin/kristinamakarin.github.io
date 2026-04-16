@@ -49,6 +49,7 @@ a, button, i {
 }
 @media (max-width: 768px) {
   .home {
+    display: block;
     margin-left: 0;
     gap: 2rem;
     min-height: auto;
@@ -56,6 +57,35 @@ a, button, i {
     justify-content: center;
     text-align: center;
   }
+}
+.home .social-icons--home {
+  position: relative;
+  bottom: 40rem;
+  gap: 1rem;
+  font-size: 2rem;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  .home .social-icons--home {
+    gap: 2rem;
+    bottom: 1rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+    text-align: center;
+  }
+}
+.home .social-icons--home a {
+  display: inline-flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .home .social-icons--home a {
+    font-size: 2.2rem;
+  }
+}
+.home .social-icons--home a:hover {
+  transition: all 0.5s ease-in-out;
+  opacity: 80%;
 }
 .home-img {
   width: 500px;
@@ -74,7 +104,7 @@ a, button, i {
   .home-img {
     width: 280px;
     height: 280px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     mask-image: none;
     -webkit-mask-image: none;
   }
@@ -95,6 +125,11 @@ a, button, i {
   text-transform: uppercase;
   color: rgba(239, 227, 237, 0.4019607843);
 }
+@media (max-width: 768px) {
+  .home-text h2 {
+    font-size: 0.5rem;
+  }
+}
 .home-name {
   position: relative;
   font-size: 3rem;
@@ -105,7 +140,8 @@ a, button, i {
 }
 @media (max-width: 768px) {
   .home-name {
-    font-size: 2rem;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
   }
 }
 .home-name--last {
@@ -185,33 +221,6 @@ a, button, i {
   background: #ff4c8b;
   border-color: #ff4c8b;
   color: #0f0c29;
-}
-
-.social-icons {
-  position: relative;
-  bottom: 40rem;
-  gap: 1.5rem;
-}
-.social-icons a {
-  font-size: 1.5rem;
-  display: inline-flex;
-  align-items: center;
-}
-@media (max-width: 768px) {
-  .social-icons a {
-    font-size: 2.2rem;
-  }
-}
-.social-icons a:hover {
-  transition: all 0.5s ease-in-out;
-  opacity: 80%;
-}
-@media (max-width: 768px) {
-  .social-icons {
-    gap: 2rem;
-    bottom: 6rem;
-    margin-top: 1.5rem;
-  }
 }
 
 .typed-text {
@@ -417,7 +426,7 @@ nav .menu-nav-link:hover {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   bottom: auto;
 }
 .bio .social-icons a {
@@ -534,6 +543,11 @@ nav .menu-nav-link:hover {
   width: 2px;
   height: 2.5rem;
   background: #0f0c29;
+}
+@media (max-width: 768px) {
+  .about-me-journey li:last-child::after {
+    bottom: -5rem;
+  }
 }
 .about-me-journey li h4 {
   margin: 0.5rem auto;

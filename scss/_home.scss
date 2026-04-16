@@ -28,7 +28,7 @@
 }
 
 .home {
-    position: relative; // dodaj ovo
+    position: relative;
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -42,6 +42,7 @@
     );
 
     @media ( max-width: 768px ) {
+        display: block;
         margin-left: 0;
         gap: 2rem;
         min-height: auto;
@@ -50,6 +51,33 @@
         text-align: center;
     }
 
+        .social-icons--home {
+        position: relative;
+        bottom: 40rem;
+        gap: 1rem;
+        font-size: 2rem;
+        gap: 1.5rem;
+        @media ( max-width: 768px ) {
+            gap: 2rem;
+            bottom: 1rem;
+            margin-top: 0.5rem;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        a {
+            display: inline-flex;
+            align-items: center;
+            @media (max-width: 768px) {
+                font-size: 2.2rem;
+            }
+
+            &:hover {
+                @include config.transition-ease;
+                @include config.color-opacity;
+            }
+        }
+    }
     &-img {
         width: 500px;
         height: 500px;
@@ -72,7 +100,7 @@
         @media ( max-width: 768px ) {
             width: 280px;
             height: 280px;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             mask-image: none;
             -webkit-mask-image: none;
         }
@@ -84,14 +112,17 @@
 
         @media ( max-width: 768px ) {
             margin-top: 0;
-            
-        }
+            }
         h2 {
             font-size: 1rem;
             font-weight: map-get(config.$fontWeights, medium );
             letter-spacing: 2px;
             text-transform: uppercase;
             color: transparentize(config.$text-secondary, 0.5);
+
+            @media ( max-width: 768px ) {
+            font-size: 0.5rem;
+            }
         }
     }
 
@@ -104,7 +135,8 @@
         opacity: 0;
 
         @media ( max-width: 768px ) {
-                font-size: 2rem;
+                margin-top: 0.5rem;
+                font-size: 1.5rem;
             }
         &--last {
             color: transparentize(config.$secondary-color, 0.1);
@@ -169,32 +201,6 @@
         background: config.$secondary-color;
         border-color: config.$secondary-color;
         color: config.$primary-color;
-    }
-}
-
-.social-icons {
-    position: relative;
-    bottom: 40rem;
-    gap: 1.5rem;
-    
-    a {
-        font-size: 1.5rem;
-        display: inline-flex;
-        align-items: center;
-        @media (max-width: 768px) {
-            font-size: 2.2rem;
-        }
-
-        &:hover {
-            @include config.transition-ease;
-            @include config.color-opacity;
-        }
-    }
-
-    @media ( max-width: 768px ) {
-        gap: 2rem;
-        bottom: 6rem;
-        margin-top: 1.5rem;
     }
 }
 
