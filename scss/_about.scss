@@ -78,6 +78,29 @@
         @include config.color-opacity;
     }
 
+    .social-icons {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+
+        bottom: auto;
+        a {
+            font-size: 1.5rem;
+            padding: 0.4rem;
+            @include config.transition-ease;
+            color: config.$secondary-color;
+            @include config.color-opacity;
+
+            &:hover {
+                color: config.$link-hover;
+            }
+
+        }
+    }
+
     &-span {
         color: config.$secondary-color;
         @include config.color-opacity;
@@ -196,20 +219,6 @@ footer {
     text-align: right;
     padding: 0.4rem;
     color: config.set-text-color(config.$primary-color);
-    
-    .social-icons {
-        position: fixed;
-        bottom: 1rem;
-        left: 1rem;
-
-        a {
-            padding: 0.4rem;
-            @include config.transition-ease;
-            &:hover {
-                color: config.$link-hover;
-            }
-        }
-    }
 }
 
 .skills-title {
