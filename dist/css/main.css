@@ -269,26 +269,25 @@ nav .menu-nav {
 nav .menu-nav-item {
   margin: 0 2rem;
 }
+nav .menu-nav-item.active {
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgba(255, 76, 139, 0.3);
+}
+nav .menu-nav-item.active a {
+  color: #ff4c8b !important;
+  font-weight: 700;
+}
 nav .menu-nav-link {
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 1px;
 }
 
-.menu-nav-item.active {
-  padding-bottom: 5px;
-  border-bottom: 2px solid rgba(255, 76, 139, 0.3);
-}
-.menu-nav-item.active a {
-  color: #ff4c8b !important;
-  font-weight: 700;
-}
-
 @media (max-width: 768px) {
   .menu-btn {
     display: block;
-    position: absolute;
-    z-index: 1;
+    position: fixed;
+    z-index: 1000;
     right: 1rem;
     top: 1rem;
     width: 28px;
@@ -364,6 +363,13 @@ nav .menu-nav-link {
   nav .menu-nav-item {
     transform: translateX(100vw);
     transition: all 0.5s ease-in-out;
+  }
+  nav .menu-nav-item.active {
+    border-bottom: none;
+  }
+  nav .menu-nav-item.active a {
+    font-weight: 300;
+    color: rgba(239, 227, 237, 0.9019607843);
   }
   nav .menu-nav-item.open {
     transform: translateX(0);
@@ -675,12 +681,24 @@ footer {
   gap: 1rem;
   background: linear-gradient(to right, rgba(15, 12, 41, 0.9), rgba(15, 12, 41, 0.3));
 }
+@media (max-width: 768px) {
+  .contactme {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 .contact {
   width: 60%;
   margin-top: 6rem;
   margin-bottom: 2rem;
   animation: fadeIn 0.8s ease forwards;
+}
+@media (max-width: 768px) {
+  .contact {
+    justify-content: center;
+    text-align: center;
+  }
 }
 .contact h2 {
   color: #ff4c8b;
@@ -715,6 +733,14 @@ footer {
   width: 70%;
   gap: 4rem;
 }
+@media (max-width: 768px) {
+  .contact-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+}
 .contact-me-paragraph {
   color: rgba(239, 227, 237, 0.9019607843);
   opacity: 80%;
@@ -745,6 +771,12 @@ footer {
   display: grid;
   width: 70%;
 }
+@media (max-width: 768px) {
+  .contact-me-form {
+    margin-top: 0;
+    width: 100%;
+  }
+}
 .contact-me input {
   caret-color: white;
   position: relative;
@@ -754,6 +786,11 @@ footer {
   border: 1px solid rgba(255, 76, 139, 0.4);
   border-radius: 10px;
   color: white;
+}
+@media (max-width: 768px) {
+  .contact-me input {
+    padding: 15px;
+  }
 }
 .contact-me textarea {
   caret-color: white;
@@ -797,6 +834,11 @@ footer {
   background: rgba(15, 12, 41, 0.3);
   color: rgba(255, 255, 255, 0.7);
   border: 2px solid rgba(255, 76, 139, 0.4);
+}
+@media (max-width: 768px) {
+  .send-btn {
+    margin-bottom: 4rem;
+  }
 }
 
 body {

@@ -26,6 +26,14 @@ nav {
 
         &-item {
             margin: 0 2rem;
+            &.active {
+                padding-bottom: 5px;
+                border-bottom: 2px solid transparentize(config.$secondary-color, 0.7);
+                    a {
+                        color: config.$secondary-color !important;
+                        font-weight: map-get(config.$fontWeights, bold );
+                    }
+            }
         }
 
         &-link {
@@ -36,19 +44,11 @@ nav {
     }
 }
 
-.menu-nav-item.active {
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparentize(config.$secondary-color, 0.7);
-        a {
-            color: config.$secondary-color !important;
-            font-weight: map-get(config.$fontWeights, bold );
-        }
-}
 @media ( max-width: 768px ) {
     .menu-btn {
         display: block;
-        position: absolute;
-        z-index: 1;
+        position: fixed;
+        z-index: 1000;
         right: 1rem;
         top: 1rem;
         width: 28px;
@@ -133,7 +133,14 @@ nav {
             &-item {
                 transform: translateX(100vw);
                 @include config.transition-ease;
-
+                &.active {
+                border-bottom: none; 
+                
+                a {
+                    font-weight: 300;
+                    color: config.$text-secondary; 
+                }
+            }
                 &.open {
                     transform: translateX(0);
                 }
