@@ -1,0 +1,77 @@
+$primary-color: #0f0c29;
+$secondary-color: #ff4c8b;
+$accent-color: #fb7185;     // koraljna
+$text-color: #fff1f2;
+$text-secondary: #efe3ede6;   // blijedo roze
+$link-hover: #fb7185;
+$link-color: #ff4c8b; 
+$fontWeights: (
+    normal: 400,
+    medium: 500,
+    bold: 700
+);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
+a, button, i {
+    cursor: pointer;
+}
+
+@mixin transition-ease {
+    transition: all 0.5s ease-in-out;
+}
+
+@mixin color-opacity {
+    opacity: 80%;
+}
+
+@mixin skill-tag($color) {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 1rem 0;
+    list-style-type: none;
+    font-size: 12px;
+    border-radius: 1rem;
+    color: transparentize($color, 0.3);
+    background: transparentize($color, 0.8);
+    border: 1px solid transparentize($color, 0.9);
+
+    &:hover {
+        background: transparentize($link-color, 0.2);
+        color: $primary-color;
+    }
+}
+
+@mixin button-tag($color) {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.7rem 2rem;
+    border: 1.5px solid;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-weight: map-get($fontWeights, medium );
+    background: $color;
+    border-color: $color;
+    color: $color;
+}
+
+@mixin form-tag() {
+    padding: 0 10px;
+    background: $primary-color;
+    border: 1px solid transparentize($secondary-color, 0.6);
+    border-radius: 10px;
+}
+@function set-text-color($color) {
+    @if (lightness($color) > 40% ) {
+        @return #000;
+    }
+        @else {
+            @return #fff;
+        }
+}
+

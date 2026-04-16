@@ -1,0 +1,161 @@
+@use 'config';
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px); // počni 30px lijevo
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); // vrati na originalnu poziciju
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px); // počni 30px desno
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.home {
+    position: relative; // dodaj ovo
+    min-height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    gap: 20rem;
+    background: linear-gradient(
+        to right,
+        rgba(config.$primary-color, 0.9),
+        rgba(config.$primary-color, 0.3)
+    );
+
+    &-img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+        object-position: top;
+        margin-bottom: 10rem;
+        -webkit-mask-image: linear-gradient(
+            to top,
+            transparent 0%,
+            black 40%
+        );
+        mask-image: linear-gradient(
+            to top,
+            transparent 0%,
+            black 40%
+        );
+        animation: fadeInRight 2s ease 0.3s forwards;
+        opacity: 0;
+    }
+    
+    &-text {
+        margin-top: 7rem;
+        animation: fadeInLeft 0.8s ease forwards;
+
+        h2 {
+            font-size: 1rem;
+            font-weight: map-get(config.$fontWeights, medium );
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: transparentize(config.$text-secondary, 0.5);
+
+        }
+    }
+
+    &-name {
+        position: relative;
+        font-size: 3rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        animation: fadeInLeft 0.8s ease 0.2s forwards;
+        opacity: 0;
+
+        &--last {
+            color: transparentize(config.$secondary-color, 0.1);
+            font-weight: 700;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180%;
+            height: 1px;
+            background: transparentize(config.$text-secondary, 0.5);
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+    &-sub {
+        animation: fadeInLeft 0.8s ease 0.4s forwards;
+        opacity: 0;
+    }
+}
+
+.my-work-button {
+    @include config.button-tag(config.$text-secondary);
+    background: config.$secondary-color;
+    border-color: config.$secondary-color;
+    color: config.$primary-color;
+    @include config.transition-ease;
+
+    &:hover{
+        background: config.$accent-color;
+        border-color: config.$accent-color;
+        color: config.$primary-color;
+    }
+}
+
+.contact-me-button {
+    @include config.button-tag(config.$text-secondary);
+    background: config.$primary-color;
+    border-color: config.$secondary-color;
+    color: config.$secondary-color;
+    @include config.transition-ease;
+
+
+    &:hover{
+        background: config.$secondary-color;
+        border-color: config.$secondary-color;
+        color: config.$primary-color;
+    }
+}
+
+.social-icons {
+    position: relative;
+    bottom: 40rem;
+    gap: 1rem;
+    
+    a {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+.typed-text {
+    color: config.$secondary-color;
+}
+
+.cursor {
+    color: config.$secondary-color;
+    animation: blink 0.8s ease infinite;
+} 
