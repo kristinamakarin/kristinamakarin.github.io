@@ -27,11 +27,15 @@
 }
 
 .bio {
-    width: 60%;
+    width: 60vw;
     min-height: 40vh;
     margin-top: 3rem;
     margin-bottom: 1rem;
     animation: fadeIn 0.8s ease forwards;
+    @media ( max-width: 768px ) {
+        text-align: center;
+        width: 90vw;    
+    }
 
     h2 {
         color: config.$secondary-color;
@@ -47,6 +51,11 @@
         position: relative;
         display: inline-block;
         margin-bottom: 4rem;
+
+        @media (max-width: 768px) {
+            font-size: 2rem; // Smanji glavni naslov
+            &::after { width: 80%; } // Produži liniju na mobilnom radi balansa
+        }
 
         &::after {
             content: '';
@@ -67,7 +76,6 @@
         line-height: 1.8;
         letter-spacing: 1.5px;
         @include config.color-opacity;
-
     }
 
     &-span {
@@ -82,11 +90,21 @@
     text-align: left;
     width: 60vw;
 
+    @media (max-width: 768px) {
+        flex-direction: column; 
+        width: 90vw;            
+        align-items: center;
+    }
+
     &-skills {
         width: 50%;
         padding: 2rem;
         opacity: 0;
         animation: fadeIn 0.8s ease 0.3s forwards;
+         @media ( max-width: 768px ) {
+            width: 100%;
+            display: block;
+        }
 
         &-items li:not(.skills-title) {
             @include config.skill-tag(config.$secondary-color);
@@ -106,7 +124,10 @@
         border-left: 2px solid transparentize(config.$secondary-color, 0.6);
         animation: fadeIn 0.8s ease 0.6s forwards;
         opacity: 0;
-
+         @media ( max-width: 768px ) {
+            width: 100%;
+            display: block;
+        }
         li {
             position: relative;
             margin-bottom: 1rem;
@@ -152,6 +173,7 @@
             font-size: 12px;
             color: transparentize(config.$text-secondary, 0.3);
         }
+
     }
 
     h2 {
