@@ -4,16 +4,16 @@
     display: none;
 }
 nav {
-    position: absolute;
-    top: 0;
+    position: absolute !important;
+    top: 0 !important;
     left: 0;
     width: 100%;
     visibility: visible;
     padding: 1rem 2rem;
     z-index: 10;
     background: rgba(config.$primary-color, 0.2); 
-    padding: 0.5rem 2rem;
     margin-top: 1rem;
+    transform: none !important;
 
     .menu-nav {
         display: flex;

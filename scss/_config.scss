@@ -18,6 +18,10 @@ $fontWeights: (
     cursor: default;
 }
 
+header {
+    position: static; 
+}
+
 a, button, i {
     cursor: pointer;
 }

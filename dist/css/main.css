@@ -5,6 +5,10 @@
   cursor: default;
 }
 
+header {
+  position: static;
+}
+
 a, button, i {
   cursor: pointer;
 }
@@ -242,16 +246,16 @@ a, button, i {
 }
 
 nav {
-  position: absolute;
-  top: 0;
+  position: absolute !important;
+  top: 0 !important;
   left: 0;
   width: 100%;
   visibility: visible;
   padding: 1rem 2rem;
   z-index: 10;
   background: rgba(15, 12, 41, 0.2);
-  padding: 0.5rem 2rem;
   margin-top: 1rem;
+  transform: none !important;
 }
 nav .menu-nav {
   display: flex;
@@ -813,7 +817,7 @@ a {
 }
 
 header {
-  position: fixed;
+  position: absolute;
   z-index: 2;
   width: 100%;
   padding: 2rem;
