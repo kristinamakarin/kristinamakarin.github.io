@@ -1,0 +1,70 @@
+@use 'config';
+@use 'home';
+@use 'menu';
+@use 'about';
+@use 'contact';
+@use 'projects';
+
+:root {
+    color-scheme: dark !important;
+}
+html, body, button, input, .menu-burger {
+    color-scheme: dark !important;
+    forced-color-adjust: none !important;
+    filter: none !important;
+    contain: content !important;
+}
+
+body {
+    background: config.$primary-color;
+    color: config.set-text-color(config.$primary-color);
+    min-height: 100vh;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    line-height: 1;
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+a {
+    color: config.$link-color;
+    text-decoration: none;
+}
+
+header {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    padding: 2rem;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+}
+
+footer {
+    font-size: 1rem;
+    margin-top: auto;
+    position: relative;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: right;
+    padding: 0.4rem;
+    color: config.set-text-color(config.$primary-color);
+}
+
+@media (max-width:1024px) {
+    .nav {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+        ul {
+            gap: 1.5rem;
+        }
+    }
+    .home {
+        padding-top: 4rem;
+    }
+}

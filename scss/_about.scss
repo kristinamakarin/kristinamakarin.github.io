@@ -1,0 +1,252 @@
+@use 'config';
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aboutme {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+    background: linear-gradient(
+        to right,
+        rgba(config.$primary-color, 0.9),
+        rgba(config.$primary-color, 0.3)
+    );
+}
+
+.bio {
+    width: 60vw;
+    min-height: 40vh;
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.8s ease forwards;
+    @media ( max-width: 768px ) {
+        text-align: center;
+        width: 90vw;    
+    }
+
+    h2 {
+        color: config.$secondary-color;
+        text-transform: uppercase;
+        padding-bottom: 1rem;
+        font-size: 16px;
+        letter-spacing: 3px;
+        font-weight: map-get( config.$fontWeights, medium );
+        @include config.color-opacity;
+    }
+
+    h1 {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 4rem;
+
+        @media (max-width: 768px) {
+            font-size: 2rem; // Smanji glavni naslov
+            &::after { width: 80%; } // Produži liniju na mobilnom radi balansa
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -15px;
+            width: 40%;
+            align-content: center;
+            background: config.$secondary-color;
+            height: 2px;
+             @include config.color-opacity;
+        }
+    }
+
+    p {
+        text-align: center;
+        line-height: 1.8;
+        letter-spacing: 1.5px;
+        @include config.color-opacity;
+    }
+
+    .social-icons {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 0;
+        bottom: auto;
+         
+        
+        a {
+            font-size: 1.5rem;
+            padding: 0.4rem;
+            @include config.transition-ease;
+            color: config.$secondary-color;
+            @include config.color-opacity;
+
+            &:hover {
+                color: config.$link-hover;
+            }
+
+        }
+    }
+
+    &-span {
+        color: config.$secondary-color;
+        @include config.color-opacity;
+        font-weight: map-get( config.$fontWeights, bold );
+    }
+}
+
+.about-me {
+    display: flex;
+    text-align: left;
+    width: 60vw;
+
+    @media (max-width: 768px) {
+        flex-direction: column; 
+        width: 90vw;            
+        align-items: center;
+    }
+
+    &-skills {
+        width: 50%;
+        padding: 2rem;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.3s forwards;
+         @media ( max-width: 768px ) {
+            width: 100%;
+            display: block;
+        }
+
+        &-items li:not(.skills-title) {
+            @include config.skill-tag(config.$secondary-color);
+        }
+
+        &-more li:not(.skills-title) {
+            @include config.skill-tag(config.$text-secondary);
+            margin-bottom: 0;
+        }
+    }
+    
+    &-journey {
+        width: 50%;
+        padding: 1rem;
+        list-style-type: none;
+        padding-top: 2rem;
+        position: relative; 
+        animation: fadeIn 0.8s ease 0.6s forwards;
+        opacity: 0;
+
+        @media ( max-width: 768px ) {
+            width: 100%;
+            display: block;
+        }
+
+        li {
+            position: relative;
+            margin-bottom: 0; 
+            padding-left: 1.5rem; 
+            padding-bottom: 2.5rem;
+            border-left: 2px solid transparentize(config.$secondary-color, 0.6);
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: -5px;
+                top: 5px;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: config.$secondary-color;
+                z-index: 2;
+            }
+
+            @media ( max-width: 768px ) {
+                padding-bottom: 2rem;
+            }
+
+            &:last-child {
+                border-left: 2px solid transparent;
+                padding-bottom: 0;
+
+                &::before {
+                    box-shadow: 0 0 0 4px transparentize(config.$secondary-color, 0.7);
+                    left: -5px;
+                }
+            }
+
+            h4 {
+                margin: 0.5rem auto;
+                font-size: 14px;
+                font-weight: map-get(config.$fontWeights, normal );
+            }
+            p {
+                font-size: 12px;
+                color: transparentize(config.$text-secondary, 0.3);
+            }
+        }
+
+        &-year {
+            font-size: 12px;
+            color: transparentize(config.$text-secondary, 0.3);
+        }
+    }
+
+    h2 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: config.$secondary-color;
+        @include config.color-opacity;
+        font-weight: map-get( config.$fontWeights, medium );
+        padding-bottom: 2rem;
+    }
+
+}
+
+footer {
+    font-size: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: right;
+    padding: 0.4rem;
+    color: config.set-text-color(config.$primary-color);
+}
+
+.skills-title {
+    position: relative;
+    list-style-type: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: transparentize(config.$text-secondary, 0.5);
+}
+
+.download-button {
+    padding: 0.8rem 2.4rem;
+    margin-bottom: 5rem;
+    border: 1.5px solid config.$secondary-color;
+    background: config.$primary-color;
+    color: transparentize(config.$secondary-color, 0.4);
+    text-transform: uppercase;
+    border-radius: 5px;
+    letter-spacing: 3px;
+    font-weight: map-get(config.$fontWeights, medium );
+
+    &:hover {
+        background: config.$link-color;
+        color: config.$primary-color;
+    }
+}

@@ -1,0 +1,159 @@
+@use 'config';
+ 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+.projects {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(
+        to right,
+        rgba(config.$primary-color, 0.9),
+        rgba(config.$primary-color, 0.3)
+    );
+ 
+    &-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        animation: fadeIn 0.8s ease forwards;
+ 
+        h2 {
+            color: config.$secondary-color;
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 3px;
+            font-weight: map-get(config.$fontWeights, medium);
+            padding-bottom: 1rem;
+            @include config.color-opacity;
+        }
+ 
+        h1 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+ 
+            &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -15px;
+                width: 40%;
+                background: config.$secondary-color;
+                height: 2px;
+                @include config.color-opacity;
+            }
+ 
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
+        }
+    }
+ 
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        width: 60vw;
+        animation: fadeIn 0.8s ease 0.3s forwards;
+        opacity: 0;
+ 
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            width: 90vw;
+        }
+    }
+}
+ 
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.8rem;
+    border-radius: 12px;
+    background: transparentize(config.$secondary-color, 0.93);
+    border: 1px solid transparentize(config.$secondary-color, 0.8);
+    @include config.transition-ease;
+ 
+    &:hover {
+        transform: translateY(-5px);
+        background: transparentize(config.$secondary-color, 0.87);
+        border-color: transparentize(config.$secondary-color, 0.5);
+    }
+ 
+    &-top {
+        flex: 1;
+    }
+ 
+    &-icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.2rem;
+ 
+        > i {
+            font-size: 2rem;
+            color: config.$secondary-color;
+            @include config.color-opacity;
+        }
+    }
+}
+ 
+.project-links {
+    display: flex;
+    gap: 1rem;
+ 
+    a {
+        font-size: 1.2rem;
+        color: config.$text-secondary;
+        @include config.color-opacity;
+        @include config.transition-ease;
+ 
+        &:hover {
+            color: config.$secondary-color;
+            opacity: 1;
+        }
+    }
+}
+ 
+.project-title {
+    font-size: 1.2rem;
+    color: config.$text-color;
+    margin-bottom: 0.8rem;
+    font-weight: map-get(config.$fontWeights, bold);
+}
+ 
+.project-description {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    color: transparentize(config.$text-secondary, 0.2);
+    margin-bottom: 1.5rem;
+}
+ 
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin-top: auto;
+ 
+    li {
+        @include config.skill-tag(config.$secondary-color);
+        margin: 0;
+    }
+}
+ 
